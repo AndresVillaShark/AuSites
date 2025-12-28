@@ -1,6 +1,6 @@
 import React from 'react';
 import { PORTFOLIO_ITEMS } from '../constants';
-import medicareImg from '../medicare.jpeg';
+import medicareImg from '../medicare.png';
 
 const Portfolio: React.FC = () => {
   return (

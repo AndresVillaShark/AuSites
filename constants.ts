@@ -48,7 +48,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: 1,
     title: '$200 html website',
     category: 'mariocare.com',
-    imageUrl: '/medicare.jpeg',
+    imageUrl: '/medicare.png',
     url: 'https://mariocare.com'
   },
   {
