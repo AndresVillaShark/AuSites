@@ -46,9 +46,10 @@ export const PRICING_PLANS: PricingPlan[] = [
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: 1,
-    title: 'Luxury Estate',
-    category: 'Real Estate',
-    imageUrl: 'https://picsum.photos/800/600?random=1'
+    title: '$200 html website',
+    category: 'mariocare.com',
+    imageUrl: '/medicare.jpeg',
+    url: 'https://mariocare.com'
   },
   {
     id: 2,
