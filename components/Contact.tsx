@@ -9,22 +9,42 @@ const Contact: React.FC = () => {
     package: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Construct email body
-    const subject = `AuSites Project Inquiry from ${formData.name}`;
-    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APackage Interest: ${formData.package}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    
-    // Create mailto link with both emails
-    const mailtoLink = `mailto:${CONTACT_EMAILS.join(',')}?subject=${encodeURIComponent(subject)}&body=${body}`; // body is already encoded mostly, but keep simple
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    // UI Feedback
-    alert("This will open your email client to send the inquiry to our team.");
-    
-    // Redirect
-    window.location.href = mailtoLink;
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAILS[0], {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          package: formData.package,
+          message: formData.message,
+          _subject: `AuSites Project Inquiry from ${formData.name}`,
+          _cc: CONTACT_EMAILS[1]
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', package: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -128,11 +148,24 @@ const Contact: React.FC = () => {
                             ></textarea>
                         </div>
 
-                        <button 
+                        {submitStatus === 'success' && (
+                            <div className="bg-green-500/10 border border-green-500/50 text-green-400 px-4 py-3 rounded-lg">
+                                Message sent successfully! We'll get back to you within 24 hours.
+                            </div>
+                        )}
+
+                        {submitStatus === 'error' && (
+                            <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg">
+                                Failed to send message. Please try again or email us directly.
+                            </div>
+                        )}
+
+                        <button
                             type="submit"
-                            className="w-full bg-gold-400 text-black font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gold-500 hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] hover:-translate-y-1 transition-all duration-300"
+                            disabled={isSubmitting}
+                            className="w-full bg-gold-400 text-black font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gold-500 hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                         >
-                            Send Message <Send className="w-4 h-4" />
+                            {isSubmitting ? 'Sending...' : 'Send Message'} <Send className="w-4 h-4" />
                         </button>
                     </form>
                 </div>
