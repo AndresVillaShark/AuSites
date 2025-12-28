@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../logo.png';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,7 +24,7 @@ const Navbar: React.FC = () => {
         {/* Logo - No Border as requested */}
         <a href="#" className="flex items-center gap-2 group">
           <img
-            src="/logo.png"
+            src={logo}
             alt="AuSites Logo"
             className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110"
           />
