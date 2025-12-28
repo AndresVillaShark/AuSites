@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
 
                         <div>
                             <label htmlFor="package" className="block text-sm font-medium text-gray-400 mb-2">Interested Package</label>
-                            <select 
+                            <select
                                 id="package"
                                 name="package"
                                 value={formData.package}
@@ -129,6 +129,7 @@ const Contact: React.FC = () => {
                             >
                                 <option value="" disabled>Select a package</option>
                                 <option value="Static HTML ($200)">Static HTML ($200)</option>
+                                <option value="Business ($500)">Business ($500)</option>
                                 <option value="Professional ($1,000)">Professional ($1,000)</option>
                                 <option value="Custom Quote">Custom Quote</option>
                             </select>

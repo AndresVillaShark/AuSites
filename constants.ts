@@ -24,6 +24,23 @@ export const PRICING_PLANS: PricingPlan[] = [
     ]
   },
   {
+    id: 'business',
+    title: 'Business',
+    price: '$500',
+    period: 'One-time payment',
+    description: 'Perfect for newly started businesses and small businesses for local attraction.',
+    features: [
+      { text: 'Up to 10 pages', included: true },
+      { text: 'Responsive mobile design', included: true },
+      { text: 'Basic SEO optimization', included: true },
+      { text: 'Contact form integration', included: true },
+      { text: '1 round of revisions', included: true },
+      { text: 'Fast 5-7 day delivery', included: true },
+      { text: 'CMS Integration', included: false },
+      { text: 'E-commerce functionality', included: false },
+    ]
+  },
+  {
     id: 'professional',
     title: 'Professional',
     price: '$1,000',
