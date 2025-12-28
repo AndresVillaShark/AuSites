@@ -128,7 +128,7 @@ const Contact: React.FC = () => {
                                 className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-colors appearance-none"
                             >
                                 <option value="" disabled>Select a package</option>
-                                <option value="Static HTML ($200)">Static HTML ($200)</option>
+                                <option value="Landing Page ($200)">Landing Page ($200)</option>
                                 <option value="Business ($500)">Business ($500)</option>
                                 <option value="Professional ($1,000)">Professional ($1,000)</option>
                                 <option value="Custom Quote">Custom Quote</option>

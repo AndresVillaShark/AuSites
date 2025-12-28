@@ -7,13 +7,14 @@ export const CONTACT_EMAILS = [
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    id: 'static',
-    title: 'Static HTML',
+    id: 'landing',
+    title: 'Landing Page',
     price: '$200',
     period: 'One-time payment',
     description: 'Perfect for landing pages and personal portfolios requiring speed and simplicity.',
+    icon: 'check-circle',
+    iconColor: '#3B82F6',
     features: [
-      { text: 'Up to 5 static HTML pages', included: true },
       { text: 'Responsive mobile design', included: true },
       { text: 'Basic SEO optimization', included: true },
       { text: 'Contact form integration', included: true },
@@ -29,6 +30,8 @@ export const PRICING_PLANS: PricingPlan[] = [
     price: '$500',
     period: 'One-time payment',
     description: 'Perfect for newly started businesses and small businesses for local attraction.',
+    icon: 'dollar-sign',
+    iconColor: '#10B981',
     features: [
       { text: 'Up to 10 pages', included: true },
       { text: 'Responsive mobile design', included: true },
@@ -47,6 +50,8 @@ export const PRICING_PLANS: PricingPlan[] = [
     period: 'One-time payment',
     description: 'A complete solution for businesses needing growth, analytics, and content management.',
     isPopular: true,
+    icon: 'zap',
+    iconColor: '#FFD700',
     features: [
       { text: 'Custom CMS integration', included: true },
       { text: 'Advanced responsive design', included: true },

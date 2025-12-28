@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Zap } from 'lucide-react';
+import { Check, Zap, CheckCircle, DollarSign } from 'lucide-react';
 import { PRICING_PLANS } from '../constants';
 
 const Pricing: React.FC = () => {
@@ -42,7 +42,10 @@ const Pricing: React.FC = () => {
               {/* Header */}
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
-                  {plan.isPopular ? <Zap className="text-gold-400 w-8 h-8" /> : <div className="w-8 h-8 rounded-full bg-zinc-800" />}
+                  {plan.icon === 'check-circle' && <CheckCircle className="w-8 h-8" style={{ color: plan.iconColor }} />}
+                  {plan.icon === 'dollar-sign' && <DollarSign className="w-8 h-8" style={{ color: plan.iconColor }} />}
+                  {plan.icon === 'zap' && <Zap className="w-8 h-8" style={{ color: plan.iconColor }} />}
+                  {!plan.icon && <div className="w-8 h-8 rounded-full bg-zinc-800" />}
                   <h3 className="text-xl font-medium text-white">{plan.title}</h3>
                 </div>
                 <div className="flex items-baseline gap-1 mb-2">

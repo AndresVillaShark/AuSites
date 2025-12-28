@@ -11,6 +11,8 @@ export interface PricingPlan {
   description: string;
   features: PricingFeature[];
   isPopular?: boolean;
+  icon?: 'check-circle' | 'dollar-sign' | 'zap';
+  iconColor?: string;
 }
 
 export interface PortfolioItem {
